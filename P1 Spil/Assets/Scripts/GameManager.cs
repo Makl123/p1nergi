@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
 
 
     private int score;
+    private int health = 3;
+    
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI healthText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +25,21 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void UpdateScore(int scoreToAdd)
+    public void UpdateScore(int addedScore)
     {
-        score += scoreToAdd;
+        score += addedScore;
         scoreText.text = "Score: " + score;
     }
 
+    public void UpdateHealth(int damageTaken)
+    {
+        health -= damageTaken;
+        healthText.text = "HP: " + health;
+
+        if (health <= 0)
+        {
+            Debug.Log("You are dead");
+        }
+    }
    
 }
