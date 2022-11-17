@@ -14,6 +14,6 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * Time.deltaTime*speed);
+        transform.Translate(Vector2.down*Time.deltaTime*speed);
     }
 }

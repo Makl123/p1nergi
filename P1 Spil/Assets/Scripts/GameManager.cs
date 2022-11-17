@@ -5,24 +5,23 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
-
     private int score;
-    private int health = 3;
+    private int _playerHp = 3;
     
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI healthText;
     
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void UpdateScore(int addedScore)
@@ -33,13 +32,14 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHealth(int damageTaken)
     {
-        health -= damageTaken;
-        healthText.text = "HP: " + health;
+        _playerHp -= damageTaken;
+        healthText.text = "HP: " + _playerHp;
 
-        if (health <= 0)
+        if (_playerHp <= 0)
         {
             Debug.Log("You are dead");
         }
     }
-   
+
+
 }

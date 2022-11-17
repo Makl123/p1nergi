@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] ObjectPrefabs;
+    public GameObject[] objectPrefabs;
 
     private float spawnRangeX = 5F;
 
     private float startDelay = 2F;
 
     private float spawnInterval = 1.5F;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +23,12 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
-    
+
     void SpawnRandomObject()
     {
-        int objectIndex = Random.Range(0, ObjectPrefabs.Length);
+        int objectIndex = Random.Range(0, objectPrefabs.Length);
         Vector2 spawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), 6);
 
-        Instantiate(ObjectPrefabs[objectIndex], spawnPos, ObjectPrefabs[objectIndex].transform.rotation);
+        Instantiate(objectPrefabs[objectIndex], spawnPos, objectPrefabs[objectIndex].transform.rotation);
     }
 }
