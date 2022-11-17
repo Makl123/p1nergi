@@ -21,7 +21,17 @@ public class WhenHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(gameObject);
-        gameManager.UpdateScore(5);
+        if (tag == "Item")
+        {
+            Destroy(gameObject); 
+            gameManager.UpdateScore(5); 
+        }
+
+        if (tag == "Enemy")
+        {
+            Destroy(gameObject);
+            gameManager.UpdateHealth(1);
+        }
+       
     }
 }
