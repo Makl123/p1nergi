@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class WhenHit : MonoBehaviour
 {
+    /// <summary>
+    /// Code inspired by Unity Learn Lesson 2.4 - Collision Decisions and modified to fit this project.
+    /// </summary>
     private GameManager gameManager;
     
     // Start is called before the first frame update

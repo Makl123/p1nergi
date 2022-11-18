@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    /// <summary>
+    /// Code inspired by Unity Learn Lesson 2.3 - Random Animal Stampede and Unity Learn Lesson 2.4 - Collision Decisions and modified to fit this project.
+    /// </summary>
+    
     public GameObject[] ObjectPrefabs;
 
     private float spawnRangeX = 5F;

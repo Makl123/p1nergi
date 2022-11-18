@@ -5,8 +5,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
-
+    /// <summary>
+    /// Code inspired by Unity Learn Lesson 5.2 Keeping Score and modified to fit the project
+    /// </summary>
+    
     private int score;
     private int health = 3;
     
