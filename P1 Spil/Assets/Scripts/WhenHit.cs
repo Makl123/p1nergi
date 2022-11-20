@@ -24,17 +24,27 @@ public class WhenHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (tag == "Item")
+        switch (tag)
         {
-            Destroy(gameObject); 
-            gameManager.UpdateScore(5); 
-        }
+            case "Item":
+                Destroy(gameObject);
+                gameManager.UpdateScore(5);
+                break;
 
-        if (tag == "Enemy")
-        {
-            Destroy(gameObject);
-            gameManager.UpdateHealth(1);
+            case "Enemy":
+                if (col.tag == "Barrier")
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                    gameManager.UpdateHealth(1);
+                }
+                break;
+
+            default:
+                break;
         }
-       
     }
 }
