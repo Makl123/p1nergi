@@ -27,8 +27,15 @@ public class WhenHit : MonoBehaviour
         switch (tag)
         {
             case "Item":
-                Destroy(gameObject);
-                gameManager.UpdateScore(5);
+                if (col.tag == "Player")
+                {
+                    Destroy(gameObject);
+                    gameManager.UpdateScore(5);
+                }
+                else if (col.tag == "Barrier")
+                {
+                    Destroy(gameObject);
+                }
                 break;
 
             case "Enemy":
@@ -41,9 +48,6 @@ public class WhenHit : MonoBehaviour
                     Destroy(gameObject);
                     gameManager.UpdateHealth(1);
                 }
-                break;
-
-            default:
                 break;
         }
     }
