@@ -8,12 +8,12 @@ public class WhenHit : MonoBehaviour
     /// <summary>
     /// Code inspired by Unity Learn Lesson 2.4 - Collision Decisions and modified to fit this project.
     /// </summary>
-    private GameManager gameManager;
+    private GameManager GameManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class WhenHit : MonoBehaviour
                 if (col.tag == "Player")
                 {
                     Destroy(gameObject);
-                    gameManager.UpdateScore(5);
+                    GameManager.UpdateScore(5);
                 }
                 else if (col.tag == "Barrier")
                 {
@@ -43,12 +43,37 @@ public class WhenHit : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+                else if (col.tag == "Player")
+                {
+                    Destroy(gameObject);
+                    GameManager.UpdateHealth(1); 
+                }
+                break;
+            
+            case "Correct":
+                if (col.tag == "Player")
+                {
+                    Destroy(gameObject);
+                    GameManager.UpdateScore(10);
+                }
+                else if (col.tag == "Barrier")
+                {
+                    Destroy(gameObject);
+                }
+                break;
+            
+            case "Incorrect":
+                if (col.tag == "Player") 
+                {
+                    Destroy(gameObject);
+                }
                 else
                 {
                     Destroy(gameObject);
-                    gameManager.UpdateHealth(1);
                 }
                 break;
+
+
         }
     }
 }
