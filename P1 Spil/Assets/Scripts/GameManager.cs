@@ -51,9 +51,8 @@ public class GameManager : MonoBehaviour
     public void StartBonusStage()
     {
         int questionIndex = Random.Range(0, spawnManager.questionArray.Length);
+        if (spawnManager.questionArray[questionIndex].activeInHierarchy) return;
         spawnManager.ActivateQuestion(questionIndex);
-        
-
     }
 
     public void UpdateHealth(int damageTaken)
