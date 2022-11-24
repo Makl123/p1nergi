@@ -22,18 +22,6 @@ public class SpawnManager : MonoBehaviour
 
     public GameManager gameManager;
 
-    private List<string> questions = new List<string>()
-    {
-        "How many people live in the sub-Saharan Africa?",
-        "What percentage of the World's population does sub-Saharan Africa consist of?",
-        "In 2021, how many people in the sub-Saharan Africa were without electricity?",
-        "In 2021, how many people in the sub-Saharan Africa were without access to clean cooking?",
-        "What is the goal of the seventh Sustainable Development Goal?",
-    };
-
-    
-
-
     private float timer = 0f;
     [SerializeField]
     private bool stopSpawn = false;
@@ -41,8 +29,9 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // InvokeRepeating("SpawnRandomObject",startDelay,spawnInterval);
-        questionText.gameObject.SetActive(false);
+       // InvokeRepeating("SpawnRandomObject",startDelay,spawnInterval);
+       //questionText.gameObject.SetActive(false);
+       //SetDeactivate();
     }
 
     // Update is called once per frame
@@ -65,6 +54,14 @@ public class SpawnManager : MonoBehaviour
         
     }
 
+    public void SetDeactivate()
+    {
+        foreach (GameObject question in questionArray)
+        {
+            question.SetActive(false);
+        }
+    }
+
 
     public void SetStopSpawn(bool b)
     {
@@ -78,4 +75,10 @@ public class SpawnManager : MonoBehaviour
         Instantiate(objectPrefabs[objectIndex], spawnPos, objectPrefabs[objectIndex].transform.rotation);
     }
 
+    public void ActivateQuestion(int index)
+    {
+        questionArray[index].SetActive(true);
+        Debug.Log("Question has activated: " + questionArray[index].name );
+        Debug.Log(questionArray[index].activeInHierarchy);
+    }
 }

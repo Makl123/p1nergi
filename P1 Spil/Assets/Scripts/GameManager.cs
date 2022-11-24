@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
+        Debug.Log("Spawn manager exist on: " + spawnManager.gameObject.name);
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
         score += addedScore;
         scoreText.text = "Score: " + score;
 
-        if (score%100 == 0 && score != 0)
+        if (score%10 == 0 && score != 0)
         {
             spawnManager.SetStopSpawn(true);
             StartBonusStage();
@@ -46,11 +47,12 @@ public class GameManager : MonoBehaviour
 
     public void StartBonusStage()
     {
-        spawnManager.questionText.gameObject.SetActive(true);
         int questionIndex = Random.Range(0, spawnManager.questionArray.Length);
-        Vector2 spawnPos = new Vector2(0, 6);
+        //Vector2 spawnPos = new Vector2(0, 0);
+        //spawnManager.questionArray[questionIndex].SetActive(true);
+        spawnManager.ActivateQuestion(questionIndex);
 
-        Instantiate(spawnManager.questionArray[questionIndex], spawnPos, spawnManager.questionArray[questionIndex].transform.rotation);
+        
 
     }
 
@@ -64,5 +66,5 @@ public class GameManager : MonoBehaviour
             Debug.Log("You are dead");
         }
     }
-   
+
 }
