@@ -66,5 +66,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("You are dead");
         }
     }
-
+    public int GetScore()
+    {
+        return score;
+    }
 }
