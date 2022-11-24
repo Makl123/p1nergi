@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myBody; 
     private Animator myAnimator; 
 
-    [SerializeField] private int speed = 5; 
+    [SerializeField] private int speed = 5;
+    [SerializeField] private float xRange = 5;
 
     private void Awake() 
     {
@@ -46,6 +47,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.x < -xRange){
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
         
+        if (transform.position.x > xRange){
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
     }
 }

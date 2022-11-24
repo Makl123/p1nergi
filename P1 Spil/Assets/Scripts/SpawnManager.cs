@@ -65,9 +65,10 @@ public class SpawnManager : MonoBehaviour
 
     public void SetStopSpawn(bool b)
     {
+        Debug.Log("Stop spawn is set to" + b);
         stopSpawn = b;
     }
-    void SpawnRandomObject()
+    public void SpawnRandomObject()
     {
         int objectIndex = Random.Range(0, objectPrefabs.Length);
         Vector2 spawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), 6);
@@ -78,7 +79,5 @@ public class SpawnManager : MonoBehaviour
     public void ActivateQuestion(int index)
     {
         questionArray[index].SetActive(true);
-        Debug.Log("Question has activated: " + questionArray[index].name );
-        Debug.Log(questionArray[index].activeInHierarchy);
     }
 }

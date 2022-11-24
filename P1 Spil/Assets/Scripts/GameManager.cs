@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Code inspired by Unity Learn Lesson 5.2 Keeping Score and modified to fit the project
     /// </summary>
-    
-    private int score;
+
+    public int score;
+
     private int health = 3;
+    private int reward;
     
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI rewardText;
 
     public SpawnManager spawnManager;
     
@@ -48,10 +51,7 @@ public class GameManager : MonoBehaviour
     public void StartBonusStage()
     {
         int questionIndex = Random.Range(0, spawnManager.questionArray.Length);
-        //Vector2 spawnPos = new Vector2(0, 0);
-        //spawnManager.questionArray[questionIndex].SetActive(true);
         spawnManager.ActivateQuestion(questionIndex);
-
         
 
     }
@@ -69,5 +69,11 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public void UpdateReward(int addedReward)
+    {
+        reward += addedReward;
+        rewardText.text = "x " + reward;
     }
 }

@@ -9,10 +9,13 @@ public class WhenHit : MonoBehaviour
     /// Code inspired by Unity Learn Lesson 2.4 - Collision Decisions and modified to fit this project.
     /// </summary>
     private GameManager GameManager;
+
+    private SpawnManager SpawnManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        SpawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -53,8 +56,12 @@ public class WhenHit : MonoBehaviour
             case "Correct":
                 if (col.tag == "Player")
                 {
+                    Debug.Log("Player chose correct");
+                    SpawnManager.SetStopSpawn(false);
                     Destroy(gameObject);
-                    GameManager.UpdateScore(10);
+                    GameManager.UpdateScore(5);
+                    GameManager.UpdateReward(1);
+   
                 }
                 else if (col.tag == "Barrier")
                 {
@@ -66,8 +73,9 @@ public class WhenHit : MonoBehaviour
                 if (col.tag == "Player") 
                 {
                     Destroy(gameObject);
+                    SpawnManager.SetStopSpawn(false);
                 }
-                else
+                else if (col.tag == "Barrier")
                 {
                     Destroy(gameObject);
                 }
