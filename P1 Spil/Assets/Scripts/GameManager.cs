@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
         Debug.Log("Spawn manager exist on: " + spawnManager.gameObject.name);
+        healthText.text = "HP: " + health;
     }
 
     // Update is called once per frame
@@ -64,10 +65,10 @@ public class GameManager : MonoBehaviour
     {
         health -= damageTaken;
         healthText.text = "HP: " + health;
-            
+        
         if (health <= 0)
         {
-            Debug.Log("You are dead");
+            Application.Quit();
         }
     }
     public int GetScore()
