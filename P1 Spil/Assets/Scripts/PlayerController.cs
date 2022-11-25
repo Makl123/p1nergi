@@ -5,54 +5,50 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
- private Vector2 movement; 
-    private Rigidbody2D myBody; 
-    private Animator myAnimator; 
+    // Code inspired by a lesson from Ali and Unity Learn Lesson 2.1 Player Positioning and modified to fit this project.
+    private Vector2 _movement; 
+    private Rigidbody2D _myBody; 
+    private Animator _myAnimator; 
 
-    [SerializeField] private int speed = 5;
-    [SerializeField] private float xRange = 5;
+    [SerializeField] private int _speed = 5;
+    [SerializeField] private float _xRange = 5;
 
     private void Awake() 
     {
-        myBody = GetComponent<Rigidbody2D>(); 
-        myAnimator = GetComponent<Animator>(); 
+        _myBody = GetComponent<Rigidbody2D>(); 
+        _myAnimator = GetComponent<Animator>(); 
     }
 
     private void OnMovement(InputValue value) 
     {
-        movement = value.Get<Vector2>();  
+        _movement = value.Get<Vector2>();  
 
-        if (movement.x != 0 || movement.y != 0) 
+        if (_movement.x != 0 || _movement.y != 0) 
         {
-            myAnimator.SetFloat("x", movement.x); 
-            myAnimator.SetFloat("y",movement.y);  
-            myAnimator.SetBool("isWalking", true); 
+            _myAnimator.SetFloat("x", _movement.x); 
+            _myAnimator.SetFloat("y",_movement.y);  
+            _myAnimator.SetBool("isWalking", true); 
         }
         else
         {
-            myAnimator.SetBool("isWalking", false); 
+            _myAnimator.SetBool("isWalking", false); 
         }
     }
 
     private void FixedUpdate() 
     {
-        myBody.velocity = movement * speed; 
+        _myBody.velocity = _movement * _speed; 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+   
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < -xRange){
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        if (transform.position.x < -_xRange){
+            transform.position = new Vector3(-_xRange, transform.position.y, transform.position.z);
         }
         
-        if (transform.position.x > xRange){
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        if (transform.position.x > _xRange){
+            transform.position = new Vector3(_xRange, transform.position.y, transform.position.z);
         }
     }
 }

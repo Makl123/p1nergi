@@ -9,76 +9,66 @@ public class GameManager : MonoBehaviour
     /// Code inspired by Unity Learn Lesson 5.2 Keeping Score and modified to fit the project
     /// </summary>
 
-    public int score;
+    public int Score;
 
-    private int health = 3;
-    private int reward;
+    private int _health = 3;
+    private int _reward;
     
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI healthText;
-    public TextMeshProUGUI rewardText;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI HealthText;
+    public TextMeshProUGUI RewardText;
 
-    public SpawnManager spawnManager;
-    public GameObject[] finishedQuestions = new GameObject[5];
+    public SpawnManager SpawnManager;
+    public GameObject[] FinishedQuestions = new GameObject[5];
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
-        Debug.Log("Spawn manager exist on: " + spawnManager.gameObject.name);
-        healthText.text = "HP: " + health;
+        SpawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
+        HealthText.text = "HP: " + _health;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    
     public void UpdateScore(int addedScore)
     {
-        score += addedScore;
-        scoreText.text = "Score: " + score;
+        Score += addedScore;
+        ScoreText.text = "Score: " + Score;
 
-        if (score%10 == 0 && score != 0)
-        {
-            spawnManager.SetStopSpawn(true);
-            StartBonusStage();
-        }
-        
+        if (Score % 20 != 0 || Score == 0) return;
+        SpawnManager.SetStopSpawn(true);
+        StartBonusStage();
+
     }
 
-    public void StartBonusStage()
+    private void StartBonusStage()
     {
-        int questionIndex = Random.Range(0, spawnManager.questionArray.Length);
-        while (finishedQuestions[questionIndex] != null)
+        var questionIndex = Random.Range(0, SpawnManager.QuestionArray.Length);
+        while (FinishedQuestions[questionIndex] != null)
         {
-            questionIndex = Random.Range(0, spawnManager.questionArray.Length);
+            questionIndex = Random.Range(0, SpawnManager.QuestionArray.Length);
         }
         
-        spawnManager.ActivateQuestion(questionIndex);
-        finishedQuestions[questionIndex] = spawnManager.questionArray[questionIndex];
+        SpawnManager.ActivateQuestion(questionIndex);
+        FinishedQuestions[questionIndex] = SpawnManager.QuestionArray[questionIndex];
     }
 
     public void UpdateHealth(int damageTaken)
     {
-        health -= damageTaken;
-        healthText.text = "HP: " + health;
+        _health -= damageTaken;
+        HealthText.text = "HP: " + _health;
         
-        if (health <= 0)
+        if (_health <= 0)
         {
             Application.Quit();
         }
     }
     public int GetScore()
     {
-        return score;
+        return Score;
     }
 
     public void UpdateReward(int addedReward)
     {
-        reward += addedReward;
-        rewardText.text = "x " + reward;
+        _reward += addedReward;
+        RewardText.text = "x " + _reward;
     }
 }

@@ -8,74 +8,68 @@ public class WhenHit : MonoBehaviour
     /// <summary>
     /// Code inspired by Unity Learn Lesson 2.4 - Collision Decisions and modified to fit this project.
     /// </summary>
-    private GameManager GameManager;
+    private GameManager _gameManager;
 
-    private SpawnManager SpawnManager;
+    private SpawnManager _spawnManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        SpawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
-        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         switch (tag)
         {
             case "Item":
-                if (col.tag == "Player")
+                if (col.CompareTag("Player")) 
                 {
                     Destroy(gameObject);
-                    GameManager.UpdateScore(5);
+                    _gameManager.UpdateScore(5);
                 }
-                else if (col.tag == "Barrier")
+                else if (col.CompareTag("Barrier"))
                 {
                     Destroy(gameObject);
                 }
                 break;
 
             case "Enemy":
-                if (col.tag == "Barrier")
+                if (col.CompareTag("Barrier"))
                 {
                     Destroy(gameObject);
                 }
-                else if (col.tag == "Player")
+                else if (col.CompareTag("Player"))
                 {
                     Destroy(gameObject);
-                    GameManager.UpdateHealth(1); 
+                    _gameManager.UpdateHealth(1); 
                 }
                 break;
             
             case "Correct":
-                if (col.tag == "Player")
+                if (col.CompareTag("Player"))
                 {
-                    Debug.Log("Player chose correct");
-                    SpawnManager.SetStopSpawn(false);
+                    _spawnManager.SetStopSpawn(false);
                     Destroy(gameObject);
-                    GameManager.UpdateScore(5);
-                    GameManager.UpdateReward(1);
+                    _gameManager.UpdateScore(5);
+                    _gameManager.UpdateReward(1);
    
                 }
-                else if (col.tag == "Barrier")
+                else if (col.CompareTag("Barrier"))
                 {
                     Destroy(gameObject);
                 }
                 break;
             
             case "Incorrect":
-                if (col.tag == "Player") 
+                if (col.CompareTag("Player")) 
                 {
                     Destroy(gameObject);
-                    SpawnManager.SetStopSpawn(false);
+                    _spawnManager.SetStopSpawn(false);
                 }
-                else if (col.tag == "Barrier")
+                else if (col.CompareTag("Barrier"))
                 {
                     Destroy(gameObject);
                 }

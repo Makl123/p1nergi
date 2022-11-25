@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!4 &92429966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3115877194917248390, guid: 18ec1d09b735efe44918a3210dffdd17, type: 3}
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!1 &468856663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!1 &518907921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,7 +2377,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.0408704, y: 0, z: 30.821655, w: 42.310875}
+  m_margin: {x: 12.394119, y: 0, z: 35.36293, w: 42.310875}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -2464,7 +2464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 510, y: 73}
+  m_AnchoredPosition: {x: 510, y: 92.56659}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &590165639
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2558,7 +2558,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 81.197464, w: 44.26288}
+  m_margin: {x: 2.9192963, y: 0, z: 81.197464, w: 44.26288}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -4209,6 +4209,7 @@ GameObject:
   - component: {fileID: 1110686808}
   - component: {fileID: 1110686811}
   - component: {fileID: 1110686810}
+  - component: {fileID: 1110686812}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4346,8 +4347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed55790890c131a44a070fd8f92255ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  xRange: 5
+  _speed: 5
+  _xRange: 5
 --- !u!61 &1110686811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4374,6 +4375,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6625837, y: 0.9363794}
   m_EdgeRadius: 0
+--- !u!95 &1110686812
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110686805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1134153599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4873,7 +4894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!1 &1298052241
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,21 +6174,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212461ec7f00b6342a92fe75bead60a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefabs:
+  ObjectPrefabs:
   - {fileID: 6787568543956489055, guid: 10724ec499d035046a3ada3a3589a155, type: 3}
-  - {fileID: 4370556020126349931, guid: 3efe33ef1a099db40833f813cdf69af4, type: 3}
   - {fileID: 6424415488609683746, guid: 89b61ba2809589a43bf4f8d1d35ca4bb, type: 3}
+  - {fileID: 4370556020126349931, guid: 3efe33ef1a099db40833f813cdf69af4, type: 3}
   - {fileID: 3115877194917248384, guid: 18ec1d09b735efe44918a3210dffdd17, type: 3}
   - {fileID: 7279920658285018726, guid: bde4e5e7526d9cf4ba5e5040e0bb1aac, type: 3}
-  questionArray:
+  QuestionArray:
   - {fileID: 88722840}
   - {fileID: 458602530}
   - {fileID: 1813012213}
   - {fileID: 1285625011}
   - {fileID: 468856663}
-  questionText: {fileID: 0}
-  gameManager: {fileID: 0}
-  stopSpawn: 0
 --- !u!114 &1776124415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6180,12 +6198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccdc0546b49e24fa5d63d42a1328d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  scoreText: {fileID: 976078801}
-  healthText: {fileID: 756167918}
-  rewardText: {fileID: 2047100667}
-  spawnManager: {fileID: 0}
-  finishedQuestions:
+  Score: 0
+  ScoreText: {fileID: 976078801}
+  HealthText: {fileID: 756167918}
+  RewardText: {fileID: 2047100667}
+  SpawnManager: {fileID: 0}
+  FinishedQuestions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -6259,7 +6277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!1 &1901195733
 GameObject:
   m_ObjectHideFlags: 0
