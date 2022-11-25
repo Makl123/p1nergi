@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI rewardText;
 
     public SpawnManager spawnManager;
-    
+    public GameObject[] finishedQuestions = new GameObject[5];
 
     // Start is called before the first frame update
     void Start()
@@ -51,11 +51,13 @@ public class GameManager : MonoBehaviour
     public void StartBonusStage()
     {
         int questionIndex = Random.Range(0, spawnManager.questionArray.Length);
-        if (spawnManager.questionArray[questionIndex].activeInHierarchy)
+        while (finishedQuestions[questionIndex] != null)
         {
-            return;
+            questionIndex = Random.Range(0, spawnManager.questionArray.Length);
         }
+        
         spawnManager.ActivateQuestion(questionIndex);
+        finishedQuestions[questionIndex] = spawnManager.questionArray[questionIndex];
     }
 
     public void UpdateHealth(int damageTaken)

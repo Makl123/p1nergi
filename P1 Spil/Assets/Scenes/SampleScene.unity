@@ -6185,6 +6185,12 @@ MonoBehaviour:
   healthText: {fileID: 756167918}
   rewardText: {fileID: 2047100667}
   spawnManager: {fileID: 0}
+  finishedQuestions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1776124416
 Transform:
   m_ObjectHideFlags: 0
