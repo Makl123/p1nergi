@@ -11,12 +11,15 @@ public class WhenHit : MonoBehaviour
     private GameManager _gameManager;
 
     private SpawnManager _spawnManager;
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         _spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     
@@ -44,7 +47,7 @@ public class WhenHit : MonoBehaviour
                 else if (col.CompareTag("Player"))
                 {
                     Destroy(gameObject);
-                    _gameManager.UpdateHealth(1); 
+                    _gameManager.UpdateHealth(1);
                 }
                 break;
             
@@ -55,7 +58,7 @@ public class WhenHit : MonoBehaviour
                     Destroy(gameObject);
                     _gameManager.UpdateScore(5);
                     _gameManager.UpdateReward(1);
-   
+
                 }
                 else if (col.CompareTag("Barrier"))
                 {

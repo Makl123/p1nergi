@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,17 @@ public class PlayerController : MonoBehaviour
     // Code inspired by a lesson from Ali and Unity Learn Lesson 2.1 Player Positioning and modified to fit this project.
     private Vector2 _movement; 
     private Rigidbody2D _myBody; 
-    private Animator _myAnimator; 
+    private Animator _myAnimator;
+    private AudioSource _hitSoundSource;
+    public AudioClip EnemyHitSoundEffect;
 
     [SerializeField] private int _speed = 5;
     [SerializeField] private float _xRange = 5;
+
+    private void Start()
+    {
+        _hitSoundSource = GetComponent<AudioSource>();
+    }
 
     private void Awake() 
     {
@@ -49,6 +57,26 @@ public class PlayerController : MonoBehaviour
         
         if (transform.position.x > _xRange){
             transform.position = new Vector3(_xRange, transform.position.y, transform.position.z);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Item"))
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        else if (col.CompareTag("Correct"))
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        else if (col.CompareTag("Enemy"))
+        {
+            _hitSoundSource.PlayOneShot(EnemyHitSoundEffect);
+        }
+        else if (col.CompareTag("Incorrect"))
+        {
+            _hitSoundSource.PlayOneShot(EnemyHitSoundEffect);
         }
     }
 }
