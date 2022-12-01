@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int Score;
 
-    private int _health = 3;
+    private int _health = 5;
     private int _reward;
     
     public TextMeshProUGUI ScoreText;

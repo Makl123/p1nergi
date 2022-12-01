@@ -70,6 +70,7 @@ public class WhenHit : MonoBehaviour
                 if (col.CompareTag("Player")) 
                 {
                     Destroy(gameObject);
+                    _gameManager.UpdateHealth(1);
                     _spawnManager.SetStopSpawn(false);
                 }
                 else if (col.CompareTag("Barrier"))
