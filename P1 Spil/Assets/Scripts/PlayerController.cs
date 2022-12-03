@@ -10,14 +10,26 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement; 
     private Rigidbody2D _myBody; 
     private Animator _myAnimator;
+    
     private AudioSource _hitSoundSource;
     public AudioClip EnemyHitSoundEffect;
+    
+    public SpriteRenderer SpriteRenderer;
+    public Sprite NewSprite;
+    public Sprite SecondNewSprite;
+    public GameManager GM;
 
     [SerializeField] private int _speed = 5;
     [SerializeField] private float _xRange = 5;
 
+    private void ChangeSprite(Sprite newSprite)
+    {
+        SpriteRenderer.sprite = newSprite;
+    }
+
     private void Start()
     {
+        SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _hitSoundSource = GetComponent<AudioSource>();
     }
 
@@ -57,6 +69,16 @@ public class PlayerController : MonoBehaviour
         
         if (transform.position.x > _xRange){
             transform.position = new Vector3(_xRange, transform.position.y, transform.position.z);
+        }
+
+        if (GM.Health == 3)
+        {
+            ChangeSprite(NewSprite);
+        }
+
+        if (GM.Health <= 1)
+        {
+            ChangeSprite(SecondNewSprite);
         }
     }
 

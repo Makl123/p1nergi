@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int Score;
 
-    private int _health = 5;
+    public int Health = 5;
     private int _reward;
     
     public TextMeshProUGUI ScoreText;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SpawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
-        HealthText.text = "HP: " + _health;
+        HealthText.text = "HP: " + Health;
     }
 
     public void UpdateScore(int addedScore)
@@ -53,10 +53,10 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHealth(int damageTaken)
     {
-        _health -= damageTaken;
-        HealthText.text = "HP: " + _health;
+        Health -= damageTaken;
+        HealthText.text = "HP: " + Health;
         
-        if (_health <= 0)
+        if (Health <= 0)
         {
             Application.Quit();
         }
