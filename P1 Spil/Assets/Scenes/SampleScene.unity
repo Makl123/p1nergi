@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.5
+  Speed: 3
 --- !u!4 &92429966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3115877194917248390, guid: 18ec1d09b735efe44918a3210dffdd17, type: 3}
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.5
+  Speed: 3
 --- !u!1 &468856663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.5
+  Speed: 3
 --- !u!1 &518907921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,7 +4992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.5
+  Speed: 3
 --- !u!1 &1298052241
 GameObject:
   m_ObjectHideFlags: 0
@@ -6375,7 +6375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf2d57fd8bf6b47b77777d9bdfad14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.5
+  Speed: 3
 --- !u!1 &1901195733
 GameObject:
   m_ObjectHideFlags: 0

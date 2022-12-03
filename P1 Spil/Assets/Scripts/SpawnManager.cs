@@ -13,14 +13,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] QuestionArray;
 
     private float _spawnRangeX = 5F;
-
     private float _spawnInterval = 1.5F;
-    
-
+    private float _currentSpeed = 3F;
     private float _timer = 0f;
     private bool _stopSpawn = false;
-    
-    
 
     private void FixedUpdate()
     {
@@ -33,24 +29,25 @@ public class SpawnManager : MonoBehaviour
             _timer = 0;
             SpawnRandomObject();
         }
-        
     }
-    
 
     public void SetStopSpawn(bool b)
     {
         _stopSpawn = b;
     }
+
     private void SpawnRandomObject()
     {
         int objectIndex = Random.Range(0, ObjectPrefabs.Length);
         Vector2 spawnPos = new Vector2(Random.Range(-_spawnRangeX, _spawnRangeX), 6);
 
-        Instantiate(ObjectPrefabs[objectIndex], spawnPos, ObjectPrefabs[objectIndex].transform.rotation);
+        GameObject obj = Instantiate(ObjectPrefabs[objectIndex], spawnPos, ObjectPrefabs[objectIndex].transform.rotation); //Saving the instantiated game object as a variable so it is easier to call
+        obj.GetComponent<ObjectMovement>().UpdateSpeed(_currentSpeed); //Call the UpdateSpeed method on the game object using _currentSpeed as input 
     }
 
     public void ActivateQuestion(int index)
     {
         QuestionArray[index].SetActive(true);
+        _currentSpeed++;
     }
 }

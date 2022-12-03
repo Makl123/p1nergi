@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     /// Code inspired by Unity Learn Lesson 5.2 Keeping Score and modified to fit the project
     /// </summary>
 
-    public int Score;
+    private int Score;
 
     private int _health = 3;
     private int _reward;
@@ -56,14 +56,7 @@ public class GameManager : MonoBehaviour
         _health -= damageTaken;
         HealthText.text = "HP: " + _health;
         
-        if (_health <= 0)
-        {
-            Application.Quit();
-        }
-    }
-    public int GetScore()
-    {
-        return Score;
+        if (_health <= 0) Application.Quit();
     }
 
     public void UpdateReward(int addedReward)
