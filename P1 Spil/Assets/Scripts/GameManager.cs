@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,11 +56,13 @@ public class GameManager : MonoBehaviour
     {
         Health -= damageTaken;
         HealthText.text = "HP: " + Health;
-        
+
         if (Health <= 0)
         {
-            Application.Quit();
+            SceneManager.LoadScene("FailScreen");
         }
+
+
     }
     public int GetScore()
     {
@@ -71,4 +74,6 @@ public class GameManager : MonoBehaviour
         _reward += addedReward;
         RewardText.text = "x " + _reward;
     }
+   
 }
+
