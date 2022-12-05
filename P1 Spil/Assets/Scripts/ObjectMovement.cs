@@ -7,28 +7,15 @@ public class ObjectMovement : MonoBehaviour
     /// <summary>
     /// Code inspired by Unity Learn Lesson 1.3 High Speed Chase and modified to fit this project.
     /// </summary>
-    public float Speed = 3F;
-    private GameManager _gameManager;
-    // Start is called before the first frame update
-    private void Start()
-    {
-        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
+    public float Speed;
 
     // Update is called once per frame
     private void Update()
     {
-        transform.Translate(Vector2.down * Time.deltaTime * UpdateSpeed());
+        transform.Translate(Vector2.down * Time.deltaTime * Speed);
     }
-    private float UpdateSpeed()
+    public void UpdateSpeed(float speed)
     {
-        switch (_gameManager.GetScore())
-        {   
-            case 5:
-                Speed = 4F;
-                return Speed;
-            default:
-                return Speed;
-        }
+        Speed = speed;
     }
 }
