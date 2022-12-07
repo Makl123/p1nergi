@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6787568543956489048}
   - component: {fileID: 6787568543956489045}
   - component: {fileID: 6787568543956489050}
+  - component: {fileID: -7329941103600471386}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Item
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6787568543956489054
 SpriteRenderer:
@@ -150,3 +151,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1962ad8f72f3a2447a3eb197528adce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7329941103600471386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787568543956489055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c74caf02799e9145b865341c50c3293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoBoxes:
+  - {fileID: 7518076626248763161, guid: 8c9194530efd5ae47a190bd00d7807d9, type: 3}

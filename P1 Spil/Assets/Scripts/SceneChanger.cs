@@ -25,6 +25,11 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("LearnMore");
     }
 
+    public void GoToTutorial()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
+
 
 
 
