@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WhenHit : MonoBehaviour
 {
@@ -12,6 +15,14 @@ public class WhenHit : MonoBehaviour
 
     private SpawnManager _spawnManager;
 
+    private TextMeshPro _otherWrongQuestion;
+
+    private TextMeshPro _otherRightQuestion;
+
+    public GameObject[] _showQuestionColourArray;
+    
+    
+
 
 
     // Start is called before the first frame update
@@ -19,9 +30,29 @@ public class WhenHit : MonoBehaviour
     {
         _spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _otherWrongQuestion = GameObject.FindWithTag("Incorrect").GetComponent<TextMeshPro>();
+        _otherRightQuestion = GameObject.FindWithTag("Correct").GetComponent<TextMeshPro>();
 
     }
 
+    public void ShowWrongAnswers()
+    {
+        _showQuestionColourArray = GameObject.FindGameObjectsWithTag("Incorrect");
+        foreach (var question in _showQuestionColourArray)
+        {
+            question.GetComponent<TextMeshPro>().color = Color.red;
+        }
+    }
+
+    public void ShowRightAnswers()
+    {
+        _showQuestionColourArray = GameObject.FindGameObjectsWithTag("Correct");
+        foreach (var question in _showQuestionColourArray)
+        {
+            question.GetComponent<TextMeshPro>().color = Color.green;
+        }
+    }
+    
     
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -55,9 +86,10 @@ public class WhenHit : MonoBehaviour
                 if (col.CompareTag("Player"))
                 {
                     _spawnManager.SetStopSpawn(false);
-                    Destroy(gameObject);
                     _gameManager.UpdateScore(5);
                     _gameManager.UpdateReward(1);
+                    GetComponent<TextMeshPro>().color = Color.green;
+                    ShowWrongAnswers();
 
                 }
                 else if (col.CompareTag("Barrier"))
@@ -69,9 +101,12 @@ public class WhenHit : MonoBehaviour
             case "Incorrect":
                 if (col.CompareTag("Player")) 
                 {
-                    Destroy(gameObject);
                     _gameManager.UpdateHealth(1);
                     _spawnManager.SetStopSpawn(false);
+                    GetComponent<TextMeshPro>().color = Color.red;
+                    _otherRightQuestion.GetComponent<TextMeshPro>().color = Color.green;
+                    ShowWrongAnswers();
+                    ShowRightAnswers();
                 }
                 else if (col.CompareTag("Barrier"))
                 {

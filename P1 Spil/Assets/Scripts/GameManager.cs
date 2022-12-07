@@ -33,10 +33,17 @@ public class GameManager : MonoBehaviour
     {
         Score += addedScore;
         ScoreText.text = "Score: " + Score;
+        
+        if (Score == 115)
+        {
+            EndTheGame();
+        }
+
 
         if (Score % 20 != 0 || Score == 0) return;
         SpawnManager.SetStopSpawn(true);
         StartBonusStage();
+        
 
     }
 
@@ -59,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         if (Health <= 0)
         {
-            SceneManager.LoadScene("FailScreen");
+            EndTheGame();
         }
 
 
@@ -69,10 +76,20 @@ public class GameManager : MonoBehaviour
         return Score;
     }
 
+    public void EndTheGame()
+    {
+        SceneManager.LoadScene("FailScreen");
+    }
+
     public void UpdateReward(int addedReward)
     {
         _reward += addedReward;
         RewardText.text = "x " + _reward;
+
+        if (_reward == 5)
+        {
+            EndTheGame();
+        }
     }
    
 }
