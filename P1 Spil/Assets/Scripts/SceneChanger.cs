@@ -5,20 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-
+    //All of this can be done by one method
     public void GoToGame()
     {
         SceneManager.LoadScene("SampleScene");
-
-
     }
 
     public void GoToStartMenu() 
     {
         SceneManager.LoadScene("StartMenu");
-    
     }
-
 
     public void GoToLearnMore()
     {
@@ -29,10 +25,4 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("TutorialScene");
     }
-
-
-
-
-
-
 }

@@ -10,29 +10,18 @@ using UnityEngine.SceneManagement;
 public class TutorialManager : MonoBehaviour
 {
     public List<GameObject> objectList;
-    
-
 
     private float _spawnRangeX = 5F;
-
-    
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
-        {
-
-        }
-
-
     }
 
     // Update is called once per frame
-    public void Update()
+    void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             Time.timeScale = 1;
@@ -53,7 +42,6 @@ public class TutorialManager : MonoBehaviour
         }
 
         StartCoroutine(GoToMainGame());
-        
 
         IEnumerator GoToMainGame()
         {
@@ -63,32 +51,17 @@ public class TutorialManager : MonoBehaviour
             {
                 if (GameObject.FindGameObjectWithTag("Enemy") == null)
                 {
-
                     SceneManager.LoadScene("SampleScene");
-
                 }
-
             }
         }
-
     }
 
     private void SpawnRandomObject()
     {
-        
             Vector2 spawnPos = new Vector2(Random.Range(-_spawnRangeX, _spawnRangeX), 6);
 
             Instantiate(objectList[0], spawnPos, objectList[0].transform.rotation);
             objectList.Remove(objectList[0]);
-
-
     }
-    
 }
-
-        
-
-
-    
-
-

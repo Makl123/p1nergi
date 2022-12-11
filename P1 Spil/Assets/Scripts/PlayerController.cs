@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Code inspired by a lesson from Ali and Unity Learn Lesson 2.1 Player Positioning and modified to fit this project.
 public class PlayerController : MonoBehaviour
 {
-    // Code inspired by a lesson from Ali and Unity Learn Lesson 2.1 Player Positioning and modified to fit this project.
     private Vector2 _movement; 
     private Rigidbody2D _myBody; 
     private Animator _myAnimator;

@@ -4,12 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Code inspired by Unity Learn Lesson 5.2 Keeping Score and modified to fit the project
+/// </summary>
 public class GameManager : MonoBehaviour
 {
-    /// <summary>
-    /// Code inspired by Unity Learn Lesson 5.2 Keeping Score and modified to fit the project
-    /// </summary>
-
     public int Score;
 
     public int Health = 5;
@@ -39,12 +38,9 @@ public class GameManager : MonoBehaviour
             EndTheGame();
         }
 
-
         if (Score % 20 != 0 || Score == 0) return;
         SpawnManager.SetStopSpawn(true);
         StartBonusStage();
-        
-
     }
 
     private void StartBonusStage()
@@ -68,15 +64,9 @@ public class GameManager : MonoBehaviour
         {
             EndTheGame();
         }
-
-
-    }
-    public int GetScore()
-    {
-        return Score;
     }
 
-    public void EndTheGame()
+    private void EndTheGame()
     {
         SceneManager.LoadScene("FailScreen");
     }
@@ -91,6 +81,4 @@ public class GameManager : MonoBehaviour
             EndTheGame();
         }
     }
-   
 }
-
