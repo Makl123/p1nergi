@@ -210,7 +210,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 16186818}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: GoToTutorial
+        m_MethodName: GoToGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
