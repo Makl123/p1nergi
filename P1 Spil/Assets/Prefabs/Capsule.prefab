@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6787568543956489054
 SpriteRenderer:
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 656bdf543443d3149b3923c4eea41f3d, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: ddf56bc731a90b24fa67b627fcbb1899, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,8 +102,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.017636267, y: 0.033716835}
+  m_Size: {x: 1.0940875, y: 2.33691}
   m_Direction: 0
 --- !u!50 &6787568543956489048
 Rigidbody2D:
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1962ad8f72f3a2447a3eb197528adce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showQuestionColourArray: []
 --- !u!114 &-7329941103600471386
 MonoBehaviour:
   m_ObjectHideFlags: 0
