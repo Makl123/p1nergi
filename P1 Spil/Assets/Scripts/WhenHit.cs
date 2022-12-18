@@ -46,6 +46,10 @@ public class WhenHit : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.CompareTag("Barrier"))
+        {
+            Destroy(gameObject);
+        }
         switch (tag)
         {
             case "Item":
@@ -54,18 +58,10 @@ public class WhenHit : MonoBehaviour
                     Destroy(gameObject);
                     _gameManager.UpdateScore(5);
                 }
-                else if (col.CompareTag("Barrier"))
-                {
-                    Destroy(gameObject);
-                }
                 break;
 
             case "Enemy":
-                if (col.CompareTag("Barrier"))
-                {
-                    Destroy(gameObject);
-                }
-                else if (col.CompareTag("Player"))
+                if (col.CompareTag("Player"))
                 {
                     Destroy(gameObject);
                     _gameManager.UpdateHealth(1);
@@ -81,25 +77,17 @@ public class WhenHit : MonoBehaviour
                     GetComponent<TextMeshPro>().color = Color.green;
                     ShowWrongAnswers();
                 }
-                else if (col.CompareTag("Barrier"))
-                {
-                    Destroy(gameObject);
-                }
                 break;
             
             case "Incorrect":
                 if (col.CompareTag("Player")) 
                 {
-                    _gameManager.UpdateHealth(1);
                     _spawnManager.SetStopSpawn(false);
+                    _gameManager.UpdateHealth(1);
                     GetComponent<TextMeshPro>().color = Color.red;
                     _otherRightQuestion.GetComponent<TextMeshPro>().color = Color.green;
                     ShowWrongAnswers();
                     ShowRightAnswers();
-                }
-                else if (col.CompareTag("Barrier"))
-                {
-                    Destroy(gameObject);
                 }
                 break;
         }

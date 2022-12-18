@@ -11,9 +11,9 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] ObjectPrefabs;
     public GameObject[] QuestionArray;
 
-    private float _spawnRangeX = 5F;
-    private float _spawnInterval = 1.5F;
-    private float _currentSpeed = 3F;
+    private float _spawnRangeX = 5f;
+    private float _spawnInterval = 1.5f;
+    private float _currentSpeed = 3f;
     private float _timer = 0f;
     private bool _stopSpawn = false;
 

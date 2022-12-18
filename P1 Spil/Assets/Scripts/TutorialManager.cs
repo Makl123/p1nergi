@@ -38,7 +38,6 @@ public class TutorialManager : MonoBehaviour
                 SpawnRandomObject();
 
             } 
-
         }
 
         StartCoroutine(GoToMainGame());
@@ -51,7 +50,7 @@ public class TutorialManager : MonoBehaviour
             {
                 if (GameObject.FindGameObjectWithTag("Enemy") == null)
                 {
-                    SceneManager.LoadScene("SampleScene");
+                    SceneManager.LoadScene("MainGame");
                 }
             }
         }
@@ -59,9 +58,9 @@ public class TutorialManager : MonoBehaviour
 
     private void SpawnRandomObject()
     {
-            Vector2 spawnPos = new Vector2(Random.Range(-_spawnRangeX, _spawnRangeX), 6);
+        Vector2 spawnPos = new Vector2(Random.Range(-_spawnRangeX, _spawnRangeX), 6);
 
-            Instantiate(objectList[0], spawnPos, objectList[0].transform.rotation);
-            objectList.Remove(objectList[0]);
+        Instantiate(objectList[0], spawnPos, objectList[0].transform.rotation);
+        objectList.Remove(objectList[0]);
     }
 }

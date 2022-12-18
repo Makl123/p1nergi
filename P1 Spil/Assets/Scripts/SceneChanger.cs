@@ -8,7 +8,7 @@ public class SceneChanger : MonoBehaviour
     //All of this can be done by one method
     public void GoToGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void GoToStartMenu() 

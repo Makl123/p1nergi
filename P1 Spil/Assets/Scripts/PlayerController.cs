@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Code inspired by a lesson from Ali and Unity Learn Lesson 2.1 Player Positioning and modified to fit this project.
+// Code inspired by a lesson from Ali, for movemnt of the player, and Unity Learn Lesson 2.1 Player Positioning and modified to fit this project.
 public class PlayerController : MonoBehaviour
 {
     private Vector2 _movement; 
     private Rigidbody2D _myBody; 
-    private Animator _myAnimator;
     
     private AudioSource _hitSoundSource;
     public AudioClip EnemyHitSoundEffect;
@@ -17,42 +16,27 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer SpriteRenderer;
     public Sprite NewSprite;
     public Sprite SecondNewSprite;
-    public GameManager GM;
+    private GameManager _gameManager;
 
     [SerializeField] private int _speed = 5;
-    [SerializeField] private float _xRange = 5;
+    [SerializeField] private float _xRange = 5f;
+
+    private void Start()
+    {
+        SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        _hitSoundSource = GetComponent<AudioSource>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _myBody = GetComponent<Rigidbody2D>(); 
+    }
 
     private void ChangeSprite(Sprite newSprite)
     {
         SpriteRenderer.sprite = newSprite;
     }
 
-    private void Start()
-    {
-        SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        _hitSoundSource = GetComponent<AudioSource>();
-    }
-
-    private void Awake() 
-    {
-        _myBody = GetComponent<Rigidbody2D>(); 
-        _myAnimator = GetComponent<Animator>(); 
-    }
-
     private void OnMovement(InputValue value) 
     {
         _movement = value.Get<Vector2>();  
-
-        if (_movement.x != 0 || _movement.y != 0) 
-        {
-            _myAnimator.SetFloat("x", _movement.x); 
-            _myAnimator.SetFloat("y",_movement.y);  
-            _myAnimator.SetBool("isWalking", true); 
-        }
-        else
-        {
-            _myAnimator.SetBool("isWalking", false); 
-        }
     }
 
     private void FixedUpdate() 
@@ -71,12 +55,12 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(_xRange, transform.position.y, transform.position.z);
         }
 
-        if (GM.Health == 3)
+        if (_gameManager.Health == 3)
         {
             ChangeSprite(NewSprite);
         }
 
-        if (GM.Health <= 1)
+        if (_gameManager.Health <= 1)
         {
             ChangeSprite(SecondNewSprite);
         }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6787568543956489050}
   - component: {fileID: -7329941103600471386}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: SDG7
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

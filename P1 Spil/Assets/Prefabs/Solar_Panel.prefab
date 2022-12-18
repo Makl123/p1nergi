@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6424415488609683673}
   - component: {fileID: 7092387044965686485}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Solar_Panel
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
