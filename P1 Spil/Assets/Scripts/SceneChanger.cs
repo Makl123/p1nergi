@@ -5,24 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    //All of this can be done by one method
-    public void GoToGame()
+    
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(sceneName);
     }
 
-    public void GoToStartMenu() 
+    public void QuitGame()
     {
-        SceneManager.LoadScene("StartMenu");
+        Application.Quit();
     }
 
-    public void GoToLearnMore()
+    public void OpenURL(string WebLink)
     {
-        SceneManager.LoadScene("LearnMore");
-    }
-
-    public void GoToTutorial()
-    {
-        SceneManager.LoadScene("TutorialScene");
+        Application.OpenURL(WebLink);
     }
 }

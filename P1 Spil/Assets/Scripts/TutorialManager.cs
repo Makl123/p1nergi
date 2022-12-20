@@ -11,7 +11,7 @@ public class TutorialManager : MonoBehaviour
 {
     public List<GameObject> objectList;
 
-    private float _spawnRangeX = 5F;
+    private float _spawnRangeX = 5f;
 
     // Start is called before the first frame update
     void Start()
